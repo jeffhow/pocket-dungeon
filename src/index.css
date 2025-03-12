@@ -1,0 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Metamorphous&display=swap');
+@import "tailwindcss";
+@theme {
+    --font-brand: "Metamorphous", ui-sans-serif;
+}
