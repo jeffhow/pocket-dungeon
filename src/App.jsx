@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import NewCharacterForm from './NewCharacterForm'
+import NewCharacterForm from './NewCharacterForm/NewCharacterForm'
 
 function App() {
   const [game, setGame] = useState(0)
