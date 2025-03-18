@@ -1,9 +1,18 @@
 import { useState } from 'react'
 import './App.css'
-import NewCharacterForm from './NewCharacterForm/NewCharacterForm'
+import NewCharacterForm from './components/NewCharacterForm'
+
 
 function App() {
   const [game, setGame] = useState(0)
+  let data = [];
+  async function getData() {
+    const promise = await fetch('../public/data.json')
+    const response = await promise.json();
+    data.push(...response);
+  }
+  getData();
+  console.log(data)
 
   return (
     <div className="min-h-screen bg-gray-100">

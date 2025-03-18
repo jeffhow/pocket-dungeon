@@ -1,6 +1,20 @@
 import { useState } from "react";
+import Select from 'react-select';
+import DropDown from "../utils/DropDown";
 
 export default function NewCharacterForm() {
+
+  const species = [
+    { value: 'human', label: 'Human'},
+    { value: 'elf', label: 'Elf' },
+    { value: 'dwarf', label: 'Dwarf'}
+  ]
+  const classes = [
+    {value: 'fighter', label: 'Fighter'},
+    {value: 'wizard', label: 'Wizard'},
+    {value: 'cleric', label: 'Cleric'},
+  ]
+  
   const [formData, setFormData] = useState({
     charName: "",
     charSpecies: "",
@@ -75,24 +89,9 @@ export default function NewCharacterForm() {
             Species
           </label>
           <div className="relative">
-            <select
-              className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-              id="charSpecies"
-            >
-              <option>Human</option>
-              <option>Elf</option>
-              <option>Dwarf</option>
-            </select>
-            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-              <svg
-                className="fill-current h-4 w-4"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-              >
-                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-              </svg>
-            </div>
+            <DropDown id="charSpecies" name="charSpecies" options={species} selected={formData.charSpecies} onChange={handleChange}/>
           </div>
+          
         </div>
         <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
           <label
@@ -102,23 +101,7 @@ export default function NewCharacterForm() {
             Class
           </label>
           <div className="relative">
-            <select
-              className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-              id="charClass"
-            >
-              <option>Fighter</option>
-              <option>Wizard</option>
-              <option>Cleric</option>
-            </select>
-            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-              <svg
-                className="fill-current h-4 w-4"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-              >
-                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-              </svg>
-            </div>
+            <DropDown id="charClass" name="charClass" options={classes} selected={formData.charClass} onChange={handleChange}/>
           </div>
         </div>
       </div>
