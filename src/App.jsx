@@ -7,7 +7,7 @@ function App() {
   const [game, setGame] = useState(0)
   let data = [];
   async function getData() {
-    const promise = await fetch('../public/data.json')
+    const promise = await fetch('../data.json')
     const response = await promise.json();
     data.push(...response);
   }
